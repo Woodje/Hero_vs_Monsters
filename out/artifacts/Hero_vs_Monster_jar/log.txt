@@ -1,0 +1,5 @@
+testGetName(dk.Hero_vs_Monster.test.CharacterTest): expected:<[a]UnitTestCharacterNam...> but was:<[]UnitTestCharacterNam...>
+testSetExperience(dk.Hero_vs_Monster.test.HeroTest): expected:<540> but was:<50>
+testGetName(dk.Hero_vs_Monster.test.SkillTest): expected:<[s]UnitTestSkillName> but was:<[]UnitTestSkillName>
+testGetMapDirectory(dk.Hero_vs_Monster.test.MapTest): expected:<c:\[l]> but was:<c:\[]>
+testGetCombatSceneByZeroSkills(dk.Hero_vs_Monster.test.CombatSceneTest): expected:<3122> but was:<312>
