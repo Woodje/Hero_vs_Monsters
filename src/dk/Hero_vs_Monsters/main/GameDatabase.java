@@ -8,6 +8,8 @@ import java.sql.Statement;
 
 /**
  * GameDatabase - Used for the communication with an SQLite database.
+ * SQL injection avoidance is to be done outside this class.
+ * @See GameEngine#createCharacter(boolean userDefined)
  * @author Simon Jon Pedersen
  * @version 1.0 19/02-2015.
  */

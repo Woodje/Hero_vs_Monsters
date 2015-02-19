@@ -361,6 +361,7 @@ public class GameEngine {
     /**
      * Create either a user defined character (hero) or create one or more monsters depending on the map.
      * The user will be asked to reset or continue if the specified hero name already exist in the database.
+     * Simple SQL injection avoidance is used for the entered user name.
      * @param userDefined - True if the user should define a hero. False if monsters should be created.
      */
     private void createCharacter(boolean userDefined) {
@@ -369,7 +370,7 @@ public class GameEngine {
 
             userInterface.drawToScreen("  Create hero\n  ---------------");
 
-            Hero hero = new Hero(userInterface.getInput("  Name your hero: "), 3);
+            Hero hero = new Hero(userInterface.getInput("  Name your hero: ").replaceAll("'", "''"), 3);
 
             String input = "";
             
