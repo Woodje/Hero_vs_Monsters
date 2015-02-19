@@ -7,15 +7,26 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
- * Created by Woodje on 18-02-2015.
+ * GameDatabase - Used for the communication with an SQLite database.
+ * @author Simon Jon Pedersen
+ * @version 1.0 19/02-2015.
  */
 public class GameDatabase {
-
-    Connection databaseConnection;
-    Statement databaseStatement;
-    boolean heroExists = false,
-            mapExists = false;
     
+    /** This is used for the database connection. */
+    private Connection databaseConnection;
+
+    /** This is used the database statements. */
+    private Statement databaseStatement;
+
+    /** Booleans that are used for preventing duplicate values in the database. */
+    private boolean heroExists, mapExists;
+
+    /**
+     * Registers the JDBC driver and creates a connections to the database.
+     * If no database is found, then a new database will be created.
+     * A result in the form of string will also be returned.
+     */
     private String ConnectToDB() {
         
         try {
@@ -35,6 +46,11 @@ public class GameDatabase {
         
     }
 
+    /**
+     * Creates the tables needed in the database.
+     * If the database already have the tables created then this action will not succeed.
+     * A result in the form of string will also be returned.
+     */
     public String CreateTables() {
         
         try {
@@ -70,10 +86,15 @@ public class GameDatabase {
             
         }
 
-        return "Table created";
+        return "Tables created";
         
     }
 
+    /**
+     * Return a map if it is found in the database.
+     * If a map is not found in the database then a null will be returned.
+     * @param heroName - This should be the name of the hero of context. 
+     */
     public Map getMap(String heroName) {
 
         Map map = null;
@@ -115,6 +136,12 @@ public class GameDatabase {
 
     }
 
+    /**
+     * Save or update a maps directory and its file name to the database.
+     * @param mapDirectory - This should be the string that represents the maps directory.
+     * @param mapFileName - This should be the name that represents the maps file name.
+     * @param heroName - This should be the name of the hero of context.                  
+     */
     public String setMap(String mapDirectory, String mapFileName, String heroName) {
 
         try {
@@ -135,6 +162,8 @@ public class GameDatabase {
             else {
 
                 sql =   "INSERT INTO mappaths(mapdirectory, mapfilename, heroname) VALUES('" + mapDirectory + "','" + mapFileName + "','" + heroName + "'); ";
+
+                mapExists = true;
                         
             }
 
@@ -155,6 +184,11 @@ public class GameDatabase {
 
     }
 
+    /**
+     * Return a hero if it is found in the database.
+     * If a hero is not found in the database then a null will be returned.
+     * @param name - This should be the name of the hero that should be found and returned.
+     */
     public Hero getHero(String name) {
 
         Hero hero = null;
@@ -232,7 +266,11 @@ public class GameDatabase {
         return hero;
 
     }
-    
+
+    /**
+     * Save or update a hero to the database.
+     * @param hero - This should be the hero that should be saved or updated to the database.
+     */
     public String setHero(Hero hero) {
         
         try {

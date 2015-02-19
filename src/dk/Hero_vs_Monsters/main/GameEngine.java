@@ -9,7 +9,7 @@ import java.util.Arrays;
  * GameEngine - Used for controlling the basic logic of the game.
  * @author Simon Jon Pedersen
  * @author Kristoffer Broch Møller
- * @version 1.0 05/02-2015.
+ * @version 2.0 19/02-2015.
  */
 public class GameEngine {
 
@@ -84,9 +84,9 @@ public class GameEngine {
      *  This is the games loop from where the actual basic logic of the game takes place.
      *  Step 1: A user is prompted for an input for where to go.
      *  Step 2: If no fight has occurred, the move the monsters.
-     *  Step 3: If a fight has occurred, the enter a combat scene.
+     *  Step 3: If a fight has occurred, then enter a combat scene.
      *  Step 4: If a monster won the combat, the send the hero back to his previous location.
-     *  Step 5: If the monster lost, the delete him from the game, and reward the hero with experience.
+     *  Step 5: If the monster lost, then delete him from the game, reward the hero with experience and update the database.
      *  Step 6: If there are no more monster left in the map, the spawn as many monsters at the hero's level. (Max 5)
      *  Step 7: Start over by prompting for an input for where to go.
      *  The user is prompt for an input for each run through.
@@ -359,7 +359,8 @@ public class GameEngine {
     }
 
     /**
-     * Create either a user defined character (hero) or create one ore more monsters depending on the map.
+     * Create either a user defined character (hero) or create one or more monsters depending on the map.
+     * The user will be asked to reset or continue if the specified hero name already exist in the database.
      * @param userDefined - True if the user should define a hero. False if monsters should be created.
      */
     private void createCharacter(boolean userDefined) {
@@ -450,6 +451,7 @@ public class GameEngine {
                 }
 
                 gameDatabase.setHero(hero);
+                
             }
 
         }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Map.java - Used for representing the map as a string of characters.
  * @author Simon Jon Pedersen
  * @author Kristoffer Broch Møller
- * @version 1.0 05/02-2015.
+ * @version 1.0 19/02-2015.
  */
 public class Map {
 
@@ -33,6 +33,7 @@ public class Map {
     /** This is the directory from where the map files is to be found. */
     private String mapDirectory;
     
+    /** This is the name of the map file including extension. */
     private String mapFileName;
 
     /** This is a representation of the map textures and there location */
@@ -64,7 +65,8 @@ public class Map {
         return mapDirectory;
 
     }
-    
+
+    /** Return string that gives the maps file name. */
     public String getMapFileName() {
         
         return mapFileName;
