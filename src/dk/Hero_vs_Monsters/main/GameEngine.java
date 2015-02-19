@@ -20,6 +20,8 @@ public class GameEngine {
 
     /** This is used for user interfacing. */
     private UserInterface userInterface;
+    
+    private GameDatabase gameDatabase;
 
     /**
      * Constructor.
@@ -27,6 +29,7 @@ public class GameEngine {
      */
     public GameEngine() {
 
+        gameDatabase = new GameDatabase();
         userInterface = new UserInterface();
         map = new Map();
         characters = new ArrayList<Character>();
@@ -36,6 +39,8 @@ public class GameEngine {
     /** Represent the user for the first menu, and wait for an input. */
     public void initializeGame() {
 
+        gameDatabase.CreateTables();
+        
         userInterface.drawToScreen("  Welcome\n  --------------");
 
         int input = convertToInteger(userInterface.loadMenu(UserInterface.menu.FIRST, ""));
@@ -64,9 +69,8 @@ public class GameEngine {
      */
     private void startGame() {
 
-        createCharacter(true);
-
-        createCharacter(false);
+        if (createCharacter(true))
+            createCharacter(false);
 
         userInterface.getInput("  Press 'ENTER' to start playing");
 
@@ -354,52 +358,90 @@ public class GameEngine {
      * Create either a user defined character (hero) or create one ore more monsters depending on the map.
      * @param userDefined - True if the user should define a hero. False if monsters should be created.
      */
-    private void createCharacter(boolean userDefined) {
+    private boolean createCharacter(boolean userDefined) {
 
+        boolean resetHero = false;
+        
         if (userDefined) {
 
             userInterface.drawToScreen("  Create hero\n  ---------------");
 
             Hero hero = new Hero(userInterface.getInput("  Name your hero: "), 3);
 
-            hero.setLevel(1);
+            String input = "";
+            
+            boolean heroExists = false;
+            
+            if (gameDatabase.getHero(hero.getName()) != null) {
 
-            hero.setSkillArray(new Skill("Basic", 1, 10), 0);
-            hero.setSkillArray(new Skill("Medium", 3, 6), 1);
-            hero.setSkillArray(new Skill("High", 6, 8), 2);
+                heroExists = true;
+                
+                input = userInterface.getInput( "  " + hero.getName() + " already exist!\n" +
+                                                "  Press 'Enter' to continue loading last checkpoint...\n" +
+                                                "  Type: 'RESET' to reset the user...");
+                
+            }
 
-            hero.setTexture(map.heroTexture);
+            if (!input.contains("RESET") & heroExists) {
 
-            listMaps(false);
+                hero = gameDatabase.getHero(hero.getName());
 
-            if (map.getTextureLocations(hero.getTexture()).size() == 0) {
+                map = gameDatabase.getMap(hero.getName());
 
-                if (map.getTextureLocations(map.floorTexture).size() == 0) {
+                map.setTextureLocation(hero.getTexture(), hero.getLocation());
 
-                    userInterface.getInput("Error using map, no floor textures detected.\nPress 'ENTER' to start over...");
-
-                    characters.clear();
-
-                    createCharacter(true);
-
-                }
-                else {
-
-                    hero.setLocation(map.getTextureLocations(map.floorTexture).get(0));
-
-                    characters.add(hero);
-
-                    map.setTextureLocation(hero.getTexture(), hero.getLocation());
-
-                }
-
+                characters.add(hero);
+                
             }
             else {
 
-                hero.setLocation(map.getTextureLocations(hero.getTexture()).get(0));
+                resetHero = true;
+                
+                hero.setLevel(1);
 
-                characters.add(hero);
+                hero.setSkillArray(new Skill("Basic", 1, 10), 0);
+                hero.setSkillArray(new Skill("Medium", 3, 6), 1);
+                hero.setSkillArray(new Skill("High", 6, 8), 2);
 
+                hero.setTexture(map.heroTexture);
+
+                listMaps(false);
+
+                gameDatabase.setMap(map.getMapDirectory(), map.getMapFileName(), hero.getName());
+
+                if (map.getTextureLocations(hero.getTexture()).size() == 0) {
+
+                    if (map.getTextureLocations(map.floorTexture).size() == 0) {
+
+                        userInterface.getInput("Error using map, no floor textures detected.\nPress 'ENTER' to start over...");
+
+                        characters.clear();
+
+                        createCharacter(true);
+
+                    } else {
+
+                        hero.setLocation(map.getTextureLocations(map.floorTexture).get(0));
+
+                        hero.setLocation(map.getTextureLocations(map.floorTexture).get(0));
+
+                        characters.add(hero);
+
+                        map.setTextureLocation(hero.getTexture(), hero.getLocation());
+
+                    }
+
+                } else {
+
+                    hero.setLocation(map.getTextureLocations(hero.getTexture()).get(0));
+
+                    hero.setLocation(map.getTextureLocations(hero.getTexture()).get(0));
+
+                    characters.add(hero);
+
+                }
+
+                gameDatabase.setHero(hero);
             }
 
         }
@@ -457,6 +499,8 @@ public class GameEngine {
 
         }
 
+        return resetHero;
+        
     }
 
     /**

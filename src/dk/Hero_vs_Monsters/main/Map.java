@@ -32,6 +32,8 @@ public class Map {
 
     /** This is the directory from where the map files is to be found. */
     private String mapDirectory;
+    
+    private String mapFileName;
 
     /** This is a representation of the map textures and there location */
     private String[][][] map;
@@ -62,6 +64,12 @@ public class Map {
         return mapDirectory;
 
     }
+    
+    public String getMapFileName() {
+        
+        return mapFileName;
+        
+    }
 
     /**
      * Fill the multidimensional map array with textures according to the specified file name.
@@ -69,6 +77,8 @@ public class Map {
      */
     public void setMap(String mapFileName) {
 
+        this.mapFileName = mapFileName;
+        
         ArrayList<String> mapFromFile = getLinesFromFile(mapDirectory + "\\" + mapFileName);
 
         if (!(mapFromFile.size() > 0))
