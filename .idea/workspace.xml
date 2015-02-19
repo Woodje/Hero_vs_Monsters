@@ -43,10 +43,14 @@
       <file leaf-file-name="GameDatabase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dk/Hero_vs_Monsters/main/GameDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3640" max-vertical-offset="5559">
-              <caret line="270" column="129" selection-start-line="270" selection-start-column="129" selection-end-line="270" selection-end-column="129" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="784" max-vertical-offset="3281">
+              <caret line="201" column="0" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#ConnectToDB#0;class#GameDatabase#0" expanded="false" />
+                <element signature="method#CreateTables#0;class#GameDatabase#0" expanded="false" />
+                <element signature="method#getMap#0;class#GameDatabase#0" expanded="false" />
+                <element signature="method#setMap#0;class#GameDatabase#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -65,9 +69,12 @@
       <file leaf-file-name="Map.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dk/Hero_vs_Monsters/main/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="706" max-vertical-offset="4998">
-              <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2856" max-vertical-offset="5032">
+              <caret line="192" column="41" selection-start-line="192" selection-start-column="41" selection-end-line="192" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5479#5486#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,16 +82,22 @@
       <file leaf-file-name="GameEngine.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/dk/Hero_vs_Monsters/main/GameEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.38125" vertical-offset="1870" max-vertical-offset="6715">
-              <caret line="388" column="58" selection-start-line="388" selection-start-column="58" selection-end-line="388" selection-end-column="58" />
+            <state vertical-scroll-proportion="0.64546686" vertical-offset="3042" max-vertical-offset="6426">
+              <caret line="383" column="16" selection-start-line="383" selection-start-column="16" selection-end-line="383" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#gameLoop#0;class#GameEngine#0" expanded="false" />
+                <element signature="method#GameEngine#0;class#GameEngine#0" expanded="false" />
+                <element signature="method#initializeGame#0;class#GameEngine#0" expanded="false" />
+                <element signature="method#startGame#0;class#GameEngine#0" expanded="false" />
+                <element signature="docComment;method#gameLoop#0;class#GameEngine#0" expanded="false" />
                 <element signature="method#getCharactersFighting#0;class#GameEngine#0" expanded="false" />
                 <element signature="method#getStats#0;class#GameEngine#0" expanded="false" />
                 <element signature="method#processUserInput#0;class#GameEngine#0" expanded="false" />
                 <element signature="method#moveMonsters#0;class#GameEngine#0" expanded="false" />
+                <element signature="method#exitGame#0;class#GameEngine#0" expanded="false" />
                 <element signature="method#moveCharacter#0;class#GameEngine#0" expanded="false" />
+                <element signature="method#spawnExtraMonsters#0;class#GameEngine#0" expanded="false" />
+                <element signature="method#listMaps#0;class#GameEngine#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -93,7 +106,7 @@
       <file leaf-file-name="UserInterface.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dk/Hero_vs_Monsters/main/UserInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="1394">
+            <state vertical-scroll-proportion="0.0" vertical-offset="670" max-vertical-offset="1394">
               <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
               <folding />
             </state>
@@ -154,8 +167,8 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/dk/Hero_vs_Monsters/main/Character.java" />
         <option value="$PROJECT_DIR$/src/dk/Hero_vs_Monsters/main/Map.java" />
-        <option value="$PROJECT_DIR$/src/dk/Hero_vs_Monsters/main/GameEngine.java" />
         <option value="$PROJECT_DIR$/src/dk/Hero_vs_Monsters/main/GameDatabase.java" />
+        <option value="$PROJECT_DIR$/src/dk/Hero_vs_Monsters/main/GameEngine.java" />
       </list>
     </option>
   </component>
@@ -659,7 +672,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2522222" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14222223" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2828877" sideWeight="0.4991708" order="0" side_tool="false" content_ui="combo" />
@@ -1052,14 +1065,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dk/Hero_vs_Monsters/main/UserInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="1394">
-          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dk/Hero_vs_Monsters/main/Skill.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="1037">
@@ -1068,36 +1073,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/dk/Hero_vs_Monsters/main/UserInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="1394">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/dk/Hero_vs_Monsters/main/Map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="706" max-vertical-offset="4998">
-          <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2856" max-vertical-offset="5032">
+          <caret line="192" column="41" selection-start-line="192" selection-start-column="41" selection-end-line="192" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5479#5486#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dk/Hero_vs_Monsters/main/GameDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3640" max-vertical-offset="5559">
-          <caret line="270" column="129" selection-start-line="270" selection-start-column="129" selection-end-line="270" selection-end-column="129" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="784" max-vertical-offset="3281">
+          <caret line="201" column="0" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#ConnectToDB#0;class#GameDatabase#0" expanded="false" />
+            <element signature="method#CreateTables#0;class#GameDatabase#0" expanded="false" />
+            <element signature="method#getMap#0;class#GameDatabase#0" expanded="false" />
+            <element signature="method#setMap#0;class#GameDatabase#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dk/Hero_vs_Monsters/main/GameEngine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.38125" vertical-offset="1870" max-vertical-offset="6715">
-          <caret line="388" column="58" selection-start-line="388" selection-start-column="58" selection-end-line="388" selection-end-column="58" />
+        <state vertical-scroll-proportion="0.64546686" vertical-offset="3042" max-vertical-offset="6426">
+          <caret line="383" column="16" selection-start-line="383" selection-start-column="16" selection-end-line="383" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#gameLoop#0;class#GameEngine#0" expanded="false" />
+            <element signature="method#GameEngine#0;class#GameEngine#0" expanded="false" />
+            <element signature="method#initializeGame#0;class#GameEngine#0" expanded="false" />
+            <element signature="method#startGame#0;class#GameEngine#0" expanded="false" />
+            <element signature="docComment;method#gameLoop#0;class#GameEngine#0" expanded="false" />
             <element signature="method#getCharactersFighting#0;class#GameEngine#0" expanded="false" />
             <element signature="method#getStats#0;class#GameEngine#0" expanded="false" />
             <element signature="method#processUserInput#0;class#GameEngine#0" expanded="false" />
             <element signature="method#moveMonsters#0;class#GameEngine#0" expanded="false" />
+            <element signature="method#exitGame#0;class#GameEngine#0" expanded="false" />
             <element signature="method#moveCharacter#0;class#GameEngine#0" expanded="false" />
+            <element signature="method#spawnExtraMonsters#0;class#GameEngine#0" expanded="false" />
+            <element signature="method#listMaps#0;class#GameEngine#0" expanded="false" />
           </folding>
         </state>
       </provider>

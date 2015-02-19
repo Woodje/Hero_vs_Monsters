@@ -3,6 +3,7 @@ package dk.Hero_vs_Monsters.main;
 import java.awt.*;
 import java.lang.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * GameEngine - Used for controlling the basic logic of the game.
@@ -69,8 +70,9 @@ public class GameEngine {
      */
     private void startGame() {
 
-        if (createCharacter(true))
-            createCharacter(false);
+        createCharacter(true);
+        
+        createCharacter(false);
 
         userInterface.getInput("  Press 'ENTER' to start playing");
 
@@ -154,15 +156,17 @@ public class GameEngine {
                 Character winner = combatScene.getWinner(), loser = combatScene.getLoser();
 
                 if (winner instanceof Hero) {
-
+                    
                     ((Hero) winner).setExperience((((Hero) winner).getExperience() + winner.getHealth() * 5));
-
+                    
                     winner.setTexture(map.heroTexture);
 
                     winner.setHealth(winner.getMaxHealth());
 
                     characters.remove(loser);
-
+                    
+                    gameDatabase.setHero((Hero) winner);
+                    
                     for (Character character : characters)
                         if (!(character instanceof Hero))
                             character.setLevel(winner.getLevel());
@@ -358,9 +362,7 @@ public class GameEngine {
      * Create either a user defined character (hero) or create one ore more monsters depending on the map.
      * @param userDefined - True if the user should define a hero. False if monsters should be created.
      */
-    private boolean createCharacter(boolean userDefined) {
-
-        boolean resetHero = false;
+    private void createCharacter(boolean userDefined) {
         
         if (userDefined) {
 
@@ -387,7 +389,15 @@ public class GameEngine {
                 hero = gameDatabase.getHero(hero.getName());
 
                 map = gameDatabase.getMap(hero.getName());
+                
+                if (Arrays.equals(map.heroTexture, hero.getTexture()))
+                    hero.setTexture(map.heroTexture);
+                else if (Arrays.equals(map.fightTexture, hero.getTexture()))
+                    hero.setTexture(map.fightTexture);
 
+                for (Point point : map.getTextureLocations(map.heroTexture))
+                        map.setTextureLocation(map.floorTexture, point);
+                
                 map.setTextureLocation(hero.getTexture(), hero.getLocation());
 
                 characters.add(hero);
@@ -395,8 +405,6 @@ public class GameEngine {
             }
             else {
 
-                resetHero = true;
-                
                 hero.setLevel(1);
 
                 hero.setSkillArray(new Skill("Basic", 1, 10), 0);
@@ -448,10 +456,10 @@ public class GameEngine {
         else {
 
             Monster monster = new Monster("MONSTER1", 1);
-
-            monster.setLevel(1);
-
+            
             monster.setSkillArray(new Skill("Basic", 1, 10), 0);
+            
+            monster.setLevel(characters.get(0).getLevel());
 
             monster.setTexture(map.monsterTexture);
 
@@ -482,10 +490,10 @@ public class GameEngine {
                 for (int i = 0; i < map.getTextureLocations(map.monsterTexture).size(); i++) {
 
                     monster = new Monster("MONSTER" + String.valueOf(i + 1), 1);
-
-                    monster.setLevel(1);
-
+                    
                     monster.setSkillArray(new Skill("Basic", 1, 10), 0);
+                    
+                    monster.setLevel(characters.get(0).getLevel());
 
                     monster.setTexture(map.monsterTexture);
 
@@ -498,8 +506,6 @@ public class GameEngine {
             }
 
         }
-
-        return resetHero;
         
     }
 
@@ -517,10 +523,10 @@ public class GameEngine {
         for (int i = 0; i < amount; i++) {
 
             Character monster = new Monster("MONSTER" + String.valueOf(i + 1), 1);
-
-            monster.setLevel(level);
-
+            
             monster.setSkillArray(new Skill("Basic", 1, 10), 0);
+            
+            monster.setLevel(level);
 
             monster.setTexture(map.monsterTexture);
 

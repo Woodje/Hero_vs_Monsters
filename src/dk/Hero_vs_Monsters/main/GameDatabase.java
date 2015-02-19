@@ -55,7 +55,6 @@ public class GameDatabase {
 
             databaseStatement.executeUpdate(sql);
 
-
             sql = "CREATE TABLE mappaths(heroname TEXT, mapdirectory TEXT, mapfilename TEXT);";
 
             databaseStatement.executeUpdate(sql);
@@ -152,12 +151,9 @@ public class GameDatabase {
 
         }
 
-        return "Map saved";
+        return "Map saved to the database";
 
     }
-
-
-
 
     public Hero getHero(String name) {
 
@@ -265,8 +261,7 @@ public class GameDatabase {
                         "' WHERE heroname = '" + hero.getName() + "';";
 
                 for (int i = 0; i < hero.getSkillArray().length; i++)
-                    sql +=  " UPDATE heroskills SET" + 
-                            " mindamage = " + hero.getSkillArray()[i].getMinDamage() +
+                    sql +=  " UPDATE heroskills SET mindamage = " + hero.getSkillArray()[i].getMinDamage() +
                             ", maxdamage = " + hero.getSkillArray()[i].getMaxDamage() +
                             " WHERE heroname = '" + hero.getName() + "' AND name = '" + hero.getSkillArray()[i].getName() + "';";
                 
@@ -296,6 +291,8 @@ public class GameDatabase {
                             hero.getSkillArray()[i].getName() + "'," +
                             hero.getSkillArray()[i].getMinDamage() + "," +
                             hero.getSkillArray()[i].getMaxDamage() + ");";
+
+                    heroExists = true;
                     
                 }
                 
