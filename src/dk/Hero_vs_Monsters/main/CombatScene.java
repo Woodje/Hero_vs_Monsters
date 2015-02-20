@@ -154,7 +154,9 @@ public class CombatScene {
         }
         else if (input.toCharArray().length == 1 && !attackFromHero) {
 
-            damage = calculateCharacterDamage(character2, 0);
+            int skillIndex = (int) (Math.random() * character2.getSkillArray().length);
+
+            damage = calculateCharacterDamage(character2, skillIndex);
 
             character1.setHealth(character1.getHealth() - damage);
 

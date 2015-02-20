@@ -1,0 +1,77 @@
+<monsters>
+    <monster id='MONSTER1'>
+        <monsterName>Creepy</monsterName>
+        <skill id='1'>
+			<skillName>DaBasic</skillName>
+			<minDamage>1</minDamage>
+			<maxDamage>10</maxDamage>
+		</skill>
+    </monster>
+    <monster id='MONSTER2'>
+        <monsterName>Creepier</monsterName>
+        <skill id='1'>
+			<skillName>DaBasic</skillName>
+			<minDamage>1</minDamage>
+			<maxDamage>10</maxDamage>
+		</skill>
+		<skill id='2'>
+			<skillName>DaMiddler</skillName>
+			<minDamage>3</minDamage>
+			<maxDamage>6</maxDamage>
+		</skill>
+    </monster>
+    <monster id='MONSTER3'>
+        <monsterName>Creepiest</monsterName>
+        <skill id='1'>
+			<skillName>DaBasic</skillName>
+			<minDamage>1</minDamage>
+			<maxDamage>10</maxDamage>
+		</skill>
+		<skill id='2'>
+			<skillName>DaMiddler</skillName>
+			<minDamage>3</minDamage>
+			<maxDamage>6</maxDamage>
+		</skill>
+		<skill id='3'>
+			<skillName>DaHigh</skillName>
+			<minDamage>6</minDamage>
+			<maxDamage>8</maxDamage>
+		</skill>
+    </monster>
+	<monster id='MONSTER4'>
+        <monsterName>Creeps</monsterName>
+        <skill id='1'>
+			<skillName>DaBasic</skillName>
+			<minDamage>2</minDamage>
+			<maxDamage>11</maxDamage>
+		</skill>
+		<skill id='2'>
+			<skillName>DaMiddler</skillName>
+			<minDamage>4</minDamage>
+			<maxDamage>7</maxDamage>
+		</skill>
+		<skill id='3'>
+			<skillName>DaHigh</skillName>
+			<minDamage>7</minDamage>
+			<maxDamage>9</maxDamage>
+		</skill>
+    </monster>
+	<monster id='MONSTER5'>
+        <monsterName>DaCreep</monsterName>
+        <skill id='1'>
+			<skillName>DaBasic</skillName>
+			<minDamage>3</minDamage>
+			<maxDamage>12</maxDamage>
+		</skill>
+		<skill id='2'>
+			<skillName>DaMiddler</skillName>
+			<minDamage>5</minDamage>
+			<maxDamage>8</maxDamage>
+		</skill>
+		<skill id='3'>
+			<skillName>DaHigh</skillName>
+			<minDamage>8</minDamage>
+			<maxDamage>10</maxDamage>
+		</skill>
+    </monster>
+</monsters>

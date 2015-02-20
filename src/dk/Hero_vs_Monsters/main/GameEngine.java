@@ -458,9 +458,16 @@ public class GameEngine {
         }
         else {
 
+            MonsterSettings monsterSettings = new MonsterSettings();
+            
             Monster monster = new Monster("MONSTER1", 1);
             
             monster.setSkillArray(new Skill("Basic", 1, 10), 0);
+            
+            Monster newMonsterSettings = monsterSettings.getMonster(map.getMapDirectory(), map.getMapFileName(), monster.getName());
+            
+            if (newMonsterSettings != null)
+                monster = newMonsterSettings;
             
             monster.setLevel(characters.get(0).getLevel());
 
@@ -495,6 +502,11 @@ public class GameEngine {
                     monster = new Monster("MONSTER" + String.valueOf(i + 1), 1);
                     
                     monster.setSkillArray(new Skill("Basic", 1, 10), 0);
+
+                    newMonsterSettings = monsterSettings.getMonster(map.getMapDirectory(), map.getMapFileName(), monster.getName());
+
+                    if (newMonsterSettings != null)
+                        monster = newMonsterSettings;
                     
                     monster.setLevel(characters.get(0).getLevel());
 
@@ -525,9 +537,16 @@ public class GameEngine {
 
         for (int i = 0; i < amount; i++) {
 
+            MonsterSettings monsterSettings = new MonsterSettings();
+            
             Character monster = new Monster("MONSTER" + String.valueOf(i + 1), 1);
             
             monster.setSkillArray(new Skill("Basic", 1, 10), 0);
+
+            Monster newMonsterSettings = monsterSettings.getMonster(map.getMapDirectory(), map.getMapFileName(), monster.getName());
+
+            if (newMonsterSettings != null)
+                monster = newMonsterSettings;
             
             monster.setLevel(level);
 
