@@ -5,12 +5,11 @@ import javax.xml.parsers.*;
 import java.io.*;
 
 /**
- * MonsterSettings - Used for reading the settings for monster in a map.
+ * MonsterSettings - Used for reading the settings for monsters in a map.
  * @author Simon Jon Pedersen
  * @version 1.0 20/02-2015.
  */
 public class MonsterSettings {
-
 
     /**
      * Returns a document from a provided xml file.
