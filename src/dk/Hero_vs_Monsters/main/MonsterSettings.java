@@ -11,12 +11,26 @@ import java.io.*;
  */
 public class MonsterSettings {
 
+    /** These strings represent the path for the xml settings file. */
+    private String mapDirectory, mapFileName;
+
     /**
-     * Returns a document from a provided xml file.
+     * Constructor.
      * @param mapDirectory - This is the directory of the maps, the xml settings file must be located here.
      * @param mapFileName - This is the name of the map file, the xml settings file must have the same name.
      */
-    private Document getDocument(String mapDirectory, String mapFileName) {
+    public MonsterSettings(String mapDirectory, String mapFileName) {
+        
+        this.mapDirectory = mapDirectory;
+        
+        this.mapFileName = mapFileName;
+        
+    }
+    
+    /**
+     * Returns a document from a provided xml file.
+     */
+    private Document getDocument() {
 
         Document document;
         
@@ -41,16 +55,14 @@ public class MonsterSettings {
 
     /**
      * Return a monster based on the settings in the provided xml file.
-     * If no monster settings is found, the a null will be returned. 
-     * @param mapDirectory - This is the directory of the maps, the xml settings file must be located here.
-     * @param mapFileName - This is the name of the map file, the xml settings file must have the same name.
+     * If no monster settings is found, the a null will be returned.
      * @param monsterName - This is the name of which monster to find and return.
      */
-    public Monster getMonster(String mapDirectory, String mapFileName, String monsterName) {
+    public Monster getMonster(String monsterName) {
 
         Monster monster = null;
 
-        Document document = getDocument(mapDirectory, mapFileName);
+        Document document = getDocument();
         
         if (document == null)
             return null;

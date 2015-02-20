@@ -32,9 +32,7 @@ public class GameDatabase {
     private String ConnectToDB() {
         
         try {
-            
-            Class.forName("org.sqlite.JDBC");
-            
+
             databaseConnection = DriverManager.getConnection("jdbc:sqlite:GameDatabase.db");
             
         }
